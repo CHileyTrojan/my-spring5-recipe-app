@@ -79,13 +79,13 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         UnitOfMeasure cupsUom = cupsUomOptional.get();
 
         //get Categories
-        Optional<Category> americanCategoryOptional = categoryRepository.findByCategoryName("American");
+        Optional<Category> americanCategoryOptional = categoryRepository.findByDescription("American");
 
         if(!americanCategoryOptional.isPresent()) {
             throw new RuntimeException("Expected Category American Not Found");
         }
 
-        Optional<Category> mexicanCategoryOptional = categoryRepository.findByCategoryName("Mexican");
+        Optional<Category> mexicanCategoryOptional = categoryRepository.findByDescription("Mexican");
 
         if (!mexicanCategoryOptional.isPresent()) {
             throw new RuntimeException("Expected Category Mexican Not Found");
